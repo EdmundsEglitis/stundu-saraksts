@@ -1,16 +1,15 @@
-import Stunda from './Stunda.js';
+import Stunda from './Stunda';
+
 
 function Diena(props) {
-  const pirmdienasStundas = ["programmesana","KISSING THE HOMIES","programmesana","KISSING THE HOMIES"];
-  const otrdienasStundas = ["programmesana","KISSING THE HOMIES","programmesana","KISSING THE HOMIES"];
+  const stundasJSX = props.stundas.map((stunda)=>{
+    <stunda nosaukums={stunda} />
+  });
     return (
       <>
         <h2> {props.diena} </h2>
         <ul>
-          <Stunda nosaukums={pirmdienasStundas[0]} />
-          <Stunda nosaukums={pirmdienasStundas[1]} />
-          <Stunda nosaukums={pirmdienasStundas[2]} />
-          <Stunda nosaukums={pirmdienasStundas[3]} />
+            <stundasJSX/>
         </ul>
       </>
     );
