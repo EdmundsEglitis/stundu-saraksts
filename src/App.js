@@ -1,20 +1,51 @@
-
-import './App.css';
-import Diena from './Diena.js';
-
+import Diena from "./Diena";
 
 function App() {
+  const pirmdienasStundas = [
+    "Sports pie Klintas",
+    "Dabaszinības mīlu fiziku",
+    "Vēsture",
+    "🫥"
+  ];
+  const otrdienasStundas = [
+    "Cita stunda",
+    "Vēl stunda",
+  ];
+  const tresdienasStundas = [
+    "Cita stunda",
+    "Cita stunda",
+    "Cita stunda",
+    "Cita stunda",
+  ];
 
-  const pirmdienasStundas = ["programmesana","KISSING THE HOMIES","programmesana","KISSING THE HOMIES"];
-  const otrdienasStundas = ["programmesana","KISSING THE HOMIES","programmesana","KISSING THE HOMIES"];
+
+  visasStundas = {
+    pirmdiena: [
+      "Sports pie Klintas",
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
+    ]
+  }
   return (
-      <div class="bigger-box">
-      <h1 class="h1" >STUNDU SARAKSTS</h1>
-      <Diena diena="Pirmdiena"/>
-      <Diena diena="Otrdiena"/>
-
-      </div>
-  );
+    <>
+      <div>te būs stundu saraksts šodien</div>
+      <Diena diena="Pirmdiena" stundas={pirmdienasStundas}/>
+      <Diena diena="Otrdiena" stundas={otrdienasStundas}/>
+    </>
+  )
 }
 
 export default App;
+
+// Uztaisi divas jaunas komponentets:
+// - Diena.js
+// - Stunda.js
+
+// JS - .forEach() ir masīvu metode,
+// kura apskata ikkatru masīva elementu,
+// bet neko neatgriež (nav return)
+
+// JS - .map() ir masīvu metode,
+// kura apskata ikkatru masīva elementu
+// un atgriež jaunu masīvu (return Array)
