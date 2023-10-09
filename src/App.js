@@ -1,37 +1,60 @@
 import Diena from "./Diena";
+import style from './style.css';
 
 function App() {
-  const pirmdienasStundas = [
-    "Sports pie Klintas",
-    "Dabaszinības mīlu fiziku",
-    "Vēsture",
-    "🫥"
-  ];
-  const otrdienasStundas = [
-    "Cita stunda",
-    "Vēl stunda",
-  ];
-  const tresdienasStundas = [
-    "Cita stunda",
-    "Cita stunda",
-    "Cita stunda",
-    "Cita stunda",
-  ];
 
-
-  visasStundas = {
-    pirmdiena: [
+  const visasStundas = [ 
+    {diena: "Pirmdiena",
+    stundas: [
       "Sports pie Klintas",
       "Dabaszinības mīlu fiziku",
       "Vēsture",
       "🫥"
     ]
-  }
+    },
+    {diena: "Otrdiena",
+    stundas: [
+      "Sports pie Klintas",
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
+    ]
+    },
+    {diena: "Tresdiena",
+    stundas: [
+      "Sports pie Klintas",
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
+    ]
+    },
+    {diena: "Ceturtdiena",
+    stundas: [
+      "Sports pie Klintas",
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
+    ]
+    },
+    {diena: "Piektdiena",
+    stundas: [
+      "Sports pie Klintas",
+      "Dabaszinības mīlu fiziku",
+      "Vēsture",
+      "🫥"
+    ]
+    },
+    ];
+  const dienasJSX = visasStundas.map((diena, indekss) => {
+  return <Diena key={indekss} diena={diena.diena}  stundas={diena.stundas}/>
+  });
   return (
     <>
-      <div>te būs stundu saraksts šodien</div>
-      <Diena diena="Pirmdiena" stundas={pirmdienasStundas}/>
-      <Diena diena="Otrdiena" stundas={otrdienasStundas}/>
+      <div class="border"> 
+
+      <Diena diena="Pirmdiena" stundas={dienasJSX}/>
+              
+      </div>
     </>
   )
 }
