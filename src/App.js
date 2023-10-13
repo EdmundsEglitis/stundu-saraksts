@@ -1,5 +1,5 @@
 import Diena from "./Diena";
-import style from './style.css';
+import style from './Style.module.css';
 
 function App() {
 
@@ -50,9 +50,9 @@ function App() {
   });
   return (
     <>
-      <div class="border"> 
+      <div className={style.border}> 
 
-      <Diena diena="Pirmdiena" stundas={dienasJSX}/>
+      <Diena diena=""s stundas={dienasJSX}/>
               
       </div>
     </>

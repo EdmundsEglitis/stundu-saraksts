@@ -1,3 +1,5 @@
+import styles from "./Diena.module.css";
+
 import Stunda from "./Stunda";
 
 function Diena(props) {
@@ -7,7 +9,7 @@ function Diena(props) {
 
   return (
   <>
-    <h2>{props.diena}</h2>
+    <h2 className={styles.high}>{props.diena}</h2>
     <ul>
       {stundasJSX}
     </ul>

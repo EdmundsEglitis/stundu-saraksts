@@ -1,0 +1,6 @@
+.border {
+    border: violet;
+    border-style: dotted;
+    width: fit-content;
+    padding-right: 50px;
+}
