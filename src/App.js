@@ -1,74 +1,52 @@
+import { useEffect, useState } from "react";
 import Diena from "./Diena";
 import style from './Style.module.css';
+import Stunda from "./Stunda";
 
 function App() {
 
-  const visasStundas = [ 
-    {diena: "Pirmdiena",
-    stundas: [
-      "Sports pie Klintas",
-      "Dabaszinības mīlu fiziku",
-      "Vēsture",
-      "🫥"
-    ]
-    },
-    {diena: "Otrdiena",
-    stundas: [
-      "Sports pie Klintas",
-      "Dabaszinības mīlu fiziku",
-      "Vēsture",
-      "🫥"
-    ]
-    },
-    {diena: "Tresdiena",
-    stundas: [
-      "Sports pie Klintas",
-      "Dabaszinības mīlu fiziku",
-      "Vēsture",
-      "🫥"
-    ]
-    },
-    {diena: "Ceturtdiena",
-    stundas: [
-      "Sports pie Klintas",
-      "Dabaszinības mīlu fiziku",
-      "Vēsture",
-      "🫥"
-    ]
-    },
-    {diena: "Piektdiena",
-    stundas: [
-      "Sports pie Klintas",
-      "Dabaszinības mīlu fiziku",
-      "Vēsture",
-      "🫥"
-    ]
-    },
-    ];
-  const dienasJSX = visasStundas.map((diena, indekss) => {
-  return <Diena key={indekss} diena={diena.diena}  stundas={diena.stundas}/>
-  });
+  const [stundas, setStundas] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function getStundas() {
+      const response = await fetch("https://cheese-cake.onthewifi.com/api/lessons");
+      const data = await response.json();
+      setStundas(data);
+      setLoading(false);
+    }
+    getStundas();
+  }, []);
+
+console.log(stundas.IPb22)
+
+function renderStundas() {
+
+  const dienas = ["Pirmdiena", "Otrdiena", "Tresdiena", "Ceturtdiena", "Piektdiena"];
+  let key=0;
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  return stundas.IPb22.map((stunda) => (
+
+      <div key={stunda.classes}>
+
+      <h2>{dienas[key]}</h2>
+
+      <p>1 {stunda.classes[0]} | {stunda.teachers[0]}</p>
+      <p>2 {stunda.classes[1]} | {stunda.teachers[1]}</p>
+      <p>3 {stunda.classes[2]} | {stunda.teachers[2]}</p>
+      <p>4 {stunda.classes[3]} | {stunda.teachers[3]}</p>
+      <h2>.</h2>
+      </div>
+  )
+  );
+}
   return (
     <>
-      <div className={style.border}> 
-
-      <Diena diena=""s stundas={dienasJSX}/>
-              
-      </div>
+    <div>{renderStundas()}</div>
     </>
   )
 }
-
 export default App;
-
-// Uztaisi divas jaunas komponentets:
-// - Diena.js
-// - Stunda.js
-
-// JS - .forEach() ir masīvu metode,
-// kura apskata ikkatru masīva elementu,
-// bet neko neatgriež (nav return)
-
-// JS - .map() ir masīvu metode,
-// kura apskata ikkatru masīva elementu
-// un atgriež jaunu masīvu (return Array)
